@@ -18,8 +18,8 @@ var roleHarvester = {
             // var destinationSources = creep.room.find(FIND_SOURCES);
             // creep.memory.known_source = creep.pos.findNearest(Game.SOURCES);
 
-            if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
