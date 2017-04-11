@@ -26,6 +26,9 @@ var roleRepairer = {
                     creep.moveTo(repairTargets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
+            else{
+                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+            }
 
             /* OLD CODE, keep for fallback
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {

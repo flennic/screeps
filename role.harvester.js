@@ -32,6 +32,9 @@ var roleHarvester = {
                     creep.moveTo(energyFillTargets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
+            else{
+                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+            }
 
             /* OLD VERSION, keep if the new one fails
             if(creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {

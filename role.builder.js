@@ -24,6 +24,9 @@ var roleUpgrader = {
                         creep.moveTo(buildTargets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
+                else{
+                    creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+                }
             }
             if(creep.carry.energy == 0){
                 creep.memory.busy = false;
