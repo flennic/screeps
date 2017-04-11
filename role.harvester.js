@@ -14,7 +14,8 @@ var roleHarvester = {
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
             // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
-            creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
+            var destinationSource = creep.pos.findClosestByPath(Game.SOURCES);
+            creep.memory.known_source = destinationSource;
 
             if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
