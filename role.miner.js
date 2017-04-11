@@ -2,7 +2,7 @@
  * This is the module for the miner creeps.
  */
 
-var sourceUtils = require('util.sources')
+// var sourceUtils = require('util.sources')
 
 var roleUpgrader = {
 
@@ -10,19 +10,21 @@ var roleUpgrader = {
 
         if(creep.carry.energy < creep.carryCapacity && !creep.memory.unloading) {
 
-            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
 
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(currentSource);
+            if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.memory.known_source);
             }
         }
+
         else {
             creep.memory.unloading = true;
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
             }
             if(creep.carry.energy == 0){
-                creep.memory.unloading = false;
+                creep.memory.busy = false;
                 creep.memory.known_source = false;
             }
         }

@@ -2,7 +2,7 @@
  * This is the module for the harvester creeps.
  */
 
-var sourceUtils = require('util.sources');
+// var sourceUtils = require('util.sources');
 
 var roleHarvester = {
 
@@ -13,16 +13,16 @@ var roleHarvester = {
 
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
-            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
 
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
             creep.memory.busy = true;
 
-            // Look for possible targets and if their are any, fill them.
             var energyFillTargets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
@@ -39,15 +39,9 @@ var roleHarvester = {
                 creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
             }
 
-            /* OLD VERSION, keep if the new one fails
-            if(creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
-            }
-            */
-
             if(creep.carry.energy == 0){
-                creep.memory.known_source = false;
                 creep.memory.busy = false;
+                creep.memory.known_source = false;
             }
         }
 	}
