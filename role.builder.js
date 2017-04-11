@@ -10,12 +10,12 @@ var roleBuilder = {
 
         // Set a source if the creep doesn't know one.
         if(!creep.memory.known_source){
-            if(Math.floor(Math.random()*10) < 2){
-                creep.memory.known_source = "5873bda211e3e4361b4d987e";
-            }
-            else{
+            //if(Math.floor(Math.random()*10) < 2){
+            //    creep.memory.known_source = "5873bda211e3e4361b4d987e";
+            //}
+            //else{
                 creep.memory.known_source = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE).id;
-            }
+            //}
         }
 
         if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {

@@ -9,6 +9,10 @@ var roleRepairer = require('role.repairer');
 var factoryCreeps = require('factory.creeps');
 var overview = require('util.overview');
 
+// TODO: Harvesters fill tanks, builders use them.
+// TODO: Create Hauler Role
+// TODO: If 0 Harvesters, allow WORK, MOVE, CARRY
+
 module.exports.loop = function () {
 
     overview.printOverview();
