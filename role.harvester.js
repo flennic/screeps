@@ -2,8 +2,6 @@
  *  This is the module for the harvester creeps.
  */
 
-var sourceUtils = require('util.sources');
-
 var roleHarvester = {
 
     // TODO: Harvesters fill tanks, builders use them.
@@ -11,17 +9,18 @@ var roleHarvester = {
 
     run: function(creep) {
 
-	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
+        // Set a source if the creep doesn't know one.
+        if(!creep.memory.known_source){
+            creep.memory.known_source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE).id;
+        }
 
-            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
-            // var destinationSource = creep.pos.findClosestByPath(Game.SOURCES);
-            // var destinationSources = creep.room.find(FIND_SOURCES);
-            // creep.memory.known_source = creep.pos.findNearest(Game.SOURCES);
-
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
+	    if(creep.carry.energy < creep.carryCapacity
+            && !creep.memory.busy){
+            if(creep.harvest(Game.getObjectById(creep.memory.known_source)) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(creep.memory.known_source), {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
+
         else {
             creep.memory.busy = true;
 
