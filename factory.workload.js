@@ -1,5 +1,5 @@
 /*
- *   This module determines the workload and adjusts the MAX_* creep count in factory.creeps.
+ *  This module determines the workload and adjusts the MAX_* creep count in factory.creeps.
  */
 
 var firstCreep = _.filter(Game.creeps, (creep) => true)[0];

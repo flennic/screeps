@@ -1,5 +1,5 @@
 /*
- * This is the module for the miner creeps.
+ *  This is the module for the miner creeps.
  */
 
 // var sourceUtils = require('util.sources')

@@ -1,5 +1,5 @@
 /*
- * This module prints the overview.
+ *  This module prints the overview.
  */
 
 var factoryWorkload = require('factory.workload');

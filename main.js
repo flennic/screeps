@@ -1,5 +1,5 @@
 /*
- *   This is the main module which calls the sub-modules.
+ *  This is the main module which calls the sub-modules.
  */
 
 var roleHarvester = require('role.harvester');

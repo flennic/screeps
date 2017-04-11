@@ -1,5 +1,5 @@
 /*
- *   This module spawns creeps depending on the MAX_* creep count.
+ *  This module spawns creeps depending on the MAX_* creep count.
  */
 
 var factoryWorkload = require('factory.workload');
