@@ -8,7 +8,7 @@ var roleUpgrader = {
 
     run: function(creep) {
 
-        if(creep.carry.energy < creep.carryCapacity && !creep.memory.unloading) {
+        if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
             // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
             creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
