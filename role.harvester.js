@@ -19,8 +19,7 @@ var roleHarvester = {
             }
         }
 
-	    if(creep.carry.energy < creep.carryCapacity
-            && !creep.memory.busy){
+	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy){
             if(creep.harvest(Game.getObjectById(creep.memory.known_source)) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(Game.getObjectById(creep.memory.known_source), {visualizePathStyle: {stroke: '#ffffff'}});
             }
