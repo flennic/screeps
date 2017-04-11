@@ -2,15 +2,13 @@
  *  This is the module for the miner creeps.
  */
 
-// var sourceUtils = require('util.sources')
+var roleMiner = {
 
-var roleUpgrader = {
-
+    // Not yet ready. Do not use
     run: function(creep) {
 
         if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
-            // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
             creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
 
             if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
@@ -31,4 +29,4 @@ var roleUpgrader = {
     }
 };
 
-module.exports = roleUpgrader;
+module.exports = roleMiner;
