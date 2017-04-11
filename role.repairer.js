@@ -2,6 +2,8 @@
  *  This is the module for the repairer creeps.
  */
 
+var roleBuilder = require('role.builder');
+
 var roleRepairer = {
 
     run: function(creep) {
@@ -32,7 +34,7 @@ var roleRepairer = {
                 }
             }
             else{
-                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+                roleBuilder.run(creep);
             }
             if(creep.carry.energy == 0){
                 creep.memory.busy = false;

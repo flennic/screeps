@@ -2,6 +2,8 @@
  *  This is the module for the builder creeps.
  */
 
+var roleUpgrader = require('role.upgrader');
+
 var roleBuilder = {
 
     run: function(creep) {
@@ -32,7 +34,7 @@ var roleBuilder = {
                 }
             }
             else{
-                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+                roleUpgrader.run(creep);
             }
 
             if(creep.carry.energy == 0){

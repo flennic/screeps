@@ -31,16 +31,6 @@ var factory = {
             return;
         }
 
-        // Upgraders
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-        if(upgraders.length < CNT_UPGRADERS){
-            var newUpgrader = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'upgrader', busy: false});
-            if(newUpgrader != ERR_BUSY && newUpgrader != ERR_NOT_ENOUGH_ENERGY){
-                console.log('Spawning new Upgrader (' + (upgraders.length + 1) + '/' + CNT_UPGRADERS + '): ' + newUpgrader);
-            }
-            return;
-        }
-
         // Repairers
          var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
          if(repairers.length < CNT_REPAIRERS) {
@@ -61,9 +51,16 @@ var factory = {
             return;
         }
 
+        // Upgraders
+        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+        if(upgraders.length < CNT_UPGRADERS){
+            var newUpgrader = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'upgrader', busy: false});
+            if(newUpgrader != ERR_BUSY && newUpgrader != ERR_NOT_ENOUGH_ENERGY){
+                console.log('Spawning new Upgrader (' + (upgraders.length + 1) + '/' + CNT_UPGRADERS + '): ' + newUpgrader);
+            }
+            return;
+        }
         // Miners
-
-
     }
 }
 

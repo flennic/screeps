@@ -2,10 +2,9 @@
  *  This is the module for the harvester creeps.
  */
 
-var roleHarvester = {
+var roleRepairer = require('role.repairer');
 
-    // TODO: Harvesters fill tanks, builders use them.
-    // TODO: If 0 Harvesters, allow WORK, MOVE, CARRY
+var roleHarvester = {
 
     run: function(creep) {
 
@@ -41,7 +40,7 @@ var roleHarvester = {
                 }
             }
             else{
-                creep.moveTo(Game.spawns['Spawn1'], {visualizePathStyle: {stroke: '#ffffff'}});
+                roleRepairer.run(creep);
             }
 
             if(creep.carry.energy == 0){
