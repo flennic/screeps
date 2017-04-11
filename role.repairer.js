@@ -13,8 +13,8 @@ var roleRepairer = {
             // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
             creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
 
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
