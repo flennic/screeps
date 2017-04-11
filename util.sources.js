@@ -17,10 +17,10 @@ var sources  = {
 
                 creep.memory.known_source = sources[Math.floor(Math.random() * sources.length)].id;
 
-                /*if(creep.memory.known_source == "5873bda211e3e4361b4d987e"){
+                if(creep.memory.known_source == "5873bda211e3e4361b4d987e"){
 
                     creep.memory.known_source = sources[Math.floor(Math.random() * sources.length)].id;
-                }*/
+                }
             }
         }
         return Game.getObjectById(creep.memory.known_source);
