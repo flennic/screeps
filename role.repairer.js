@@ -8,7 +8,7 @@ var roleRepairer = {
 
         // Set a source if the creep doesn't know one.
         if(!creep.memory.known_source){
-            if(Math.floor(Math.random()*10) < 4){
+            if(Math.floor(Math.random()*10) < 2){
                 creep.memory.known_source = "5873bda211e3e4361b4d987e";
             }
             else{
