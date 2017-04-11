@@ -6,6 +6,9 @@ var sourceUtils = require('util.sources');
 
 var roleHarvester = {
 
+    // TODO: Harvesters fill tanks, builders use them.
+    // TODO: If 0 Harvesters, allow WORK, MOVE, CARRY
+
     run: function(creep) {
 
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
