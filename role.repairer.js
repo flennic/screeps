@@ -2,8 +2,6 @@
  *  This is the module for the repairer creeps.
  */
 
-var sourceUtils = require('util.sources')
-
 var roleRepairer = {
 
     run: function(creep) {

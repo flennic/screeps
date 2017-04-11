@@ -2,19 +2,23 @@
  *  This is the module for the upgrader creeps.
  */
 
-var sourceUtils = require('util.sources')
-
 var roleUpgrader = {
 
     run: function(creep) {
 
+        // Set a source if the creep doesn't know one.
+        if(!creep.memory.known_source){
+            if(Math.floor(Math.random()*10) < 3){
+                creep.memory.known_source = "5873bda211e3e4361b4d987e";
+            }
+            else{
+                creep.memory.known_source = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE).id;
+            }
+        }
+
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
-
-            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
-            // creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
-
-            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.harvest(Game.getObjectById(creep.memory.known_source)) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(creep.memory.known_source), {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
