@@ -5,9 +5,9 @@
 var firstCreep = _.filter(Game.creeps, (creep) => true)[0];
 var sourcesCount = firstCreep.room.find(FIND_SOURCES).length;
 
-const MAX_HARVESTER = 5 * sourcesCount;
+const MAX_HARVESTER = 4 * sourcesCount;
 const MIN_HARVESTER = 4;
-const MAX_BUILDER = 5 * sourcesCount;
+const MAX_BUILDER = 4 * sourcesCount;
 const MIN_BUILDER = 2;
 // Currently not needed
 const MAX_MINER = 5 * (sourcesCount - 1);
