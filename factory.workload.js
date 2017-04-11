@@ -8,6 +8,7 @@ var sourcesCount = firstCreep.room.find(FIND_SOURCES).length;
 const MAX_HARVESTER = 5 * sourcesCount;
 const MIN_HARVESTER = 4;
 const MAX_BUILDER = 5 * sourcesCount;
+const MIN_BUILDER = 2;
 // Currently not needed
 const MAX_MINER = 5 * (sourcesCount - 1);
 //const MAX_UPGRADER = 10 * sourcesCount;
@@ -21,6 +22,10 @@ var workload = {
         if(newBuildersCount > MAX_BUILDER){
             return MAX_BUILDER;
         }
+        if(newBuildersCount < MIN_BUILDER){
+            return MIN_BUILDER;
+        }
+
         return _.filter(Game.constructionSites, (ConstructionSite) => true).length + 2;
     },
     getDynamicHarvestersCount: function(){
@@ -30,7 +35,7 @@ var workload = {
         if(newHarvesterCount > MAX_HARVESTER){
             return MAX_HARVESTER;
         }
-        if (((currentNumberOfOrderedCreeps - currentNumberOfCreeps) + 4) <  MIN_HARVESTER){
+        if (newHarvesterCount <  MIN_HARVESTER){
             return MIN_HARVESTER;
         }
 
