@@ -2,7 +2,7 @@
  *  This is the module for the upgrader creeps.
  */
 
-// var sourceUtils = require('util.sources')
+var sourceUtils = require('util.sources')
 
 var roleUpgrader = {
 
@@ -10,11 +10,11 @@ var roleUpgrader = {
 
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
-            // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
-            creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
+            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            // creep.memory.known_source = creep.pos.findClosestByPath(Game.SOURCES);
 
-            if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.harvest(currentSource) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(currentSource, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {

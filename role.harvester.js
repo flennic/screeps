@@ -2,7 +2,7 @@
  *  This is the module for the harvester creeps.
  */
 
-// var sourceUtils = require('util.sources');
+var sourceUtils = require('util.sources');
 
 var roleHarvester = {
 
@@ -13,9 +13,10 @@ var roleHarvester = {
 
 	    if(creep.carry.energy < creep.carryCapacity && !creep.memory.busy) {
 
-            // var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
-            var destinationSource = creep.pos.findClosestByPath(Game.SOURCES);
-            creep.memory.known_source = destinationSource;
+            var currentSource = sourceUtils.getSavedSourceOrCreate(creep);
+            // var destinationSource = creep.pos.findClosestByPath(Game.SOURCES);
+            // var destinationSources = creep.room.find(FIND_SOURCES);
+            // creep.memory.known_source = creep.pos.findNearest(Game.SOURCES);
 
             if(creep.harvest(creep.memory.known_source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.memory.known_source, {visualizePathStyle: {stroke: '#ffffff'}});
