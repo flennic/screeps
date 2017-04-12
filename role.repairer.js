@@ -23,7 +23,7 @@ var roleRepairer = {
                 creep.moveTo(Game.getObjectById(creep.memory.known_source), {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
-        else {
+        else{
             creep.memory.busy = true;
 
             var repairTargets = creep.room.find(FIND_STRUCTURES, { filter: (s) => s.hits < s.hitsMax && s.structureType != STRUCTURE_WALL});
