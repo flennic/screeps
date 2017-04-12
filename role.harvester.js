@@ -29,10 +29,11 @@ var roleHarvester = {
 
             var energyFillTargets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN || structure.structureType == STRUCTURE_CONTAINER) &&
+                    return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &&
                         structure.energy < structure.energyCapacity;
                 }
             });
+
 
             if(energyFillTargets.length > 0) {
                 if(creep.transfer(energyFillTargets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -40,9 +41,21 @@ var roleHarvester = {
                 }
             }
             else{
-                roleRepairer.run(creep);
-            }
+                var containerFillTargets = creep.room.find(FIND_STRUCTURES, {
+                    filter: (strucure) => {
+                        return (strucure.structureType == STRUCTURE_CONTAINER && (_.sum(strucure.store) < strucure.storeCapacity));
+                    }
+                });
+                if(containerFillTargets.length > 0) {
+                    if(creep.transfer(containerFillTargets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(containerFillTargets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    }
+                }
+                else{
+                    roleRepairer.run(creep);
 
+                }
+            }
             if(creep.carry.energy == 0){
                 creep.memory.busy = false;
                 creep.memory.known_source = false;
