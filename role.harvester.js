@@ -14,6 +14,7 @@ var roleHarvester = {
         }
         else{
             if(Game.getObjectById(creep.memory.known_source).energy == 0){
+                creep.memory.busy = true;
                 creep.memory.known_source = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE).id;
             }
         }
