@@ -10,11 +10,11 @@ var roleHarvester = {
 
         // Set a source if the creep doesn't know one.
         if(!creep.memory.known_source){
-            if(Math.floor(Math.random()*10) < 1){
-                creep.memory.known_source = "5873bda211e3e4361b4d987e";
-            }
-            else{
             creep.memory.known_source = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE).id;
+        }
+        else{
+            if(Game.getObjectById(creep.memory.known_source).energy == 0){
+                creep.memory.known_source = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE).id;
             }
         }
 
