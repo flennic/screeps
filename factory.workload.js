@@ -41,7 +41,7 @@ var workload = {
         return newHarvesterCount;
     },
     getDynamicUpgradersCount:function(){
-        return 5;
+        return 10;
     },
     getDynamicMinersCount: function(){
         return 0;
