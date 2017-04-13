@@ -7,6 +7,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var factoryCreeps = require('factory.creeps');
+var divTower = require('div.tower');
 var overview = require('util.overview');
 
 // TODO: Harvesters fill tanks, builders use them, create Hauler role
@@ -33,4 +34,10 @@ module.exports.loop = function () {
     }
 
     factoryCreeps.run();
+
+
+    var towers = Game.spawns.Spawn1.room.find(FIND_MY_STRUCTURES, {
+        filter: { structureType: STRUCTURE_TOWER }
+    });
+    towers.forEach(tower => divTower.run(tower));
 }

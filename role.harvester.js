@@ -35,7 +35,6 @@ var roleHarvester = {
                 }
             });
 
-
             if(energyFillTargets.length > 0) {
                 if(creep.transfer(energyFillTargets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(energyFillTargets[0], {visualizePathStyle: {stroke: '#ffffff'}});
