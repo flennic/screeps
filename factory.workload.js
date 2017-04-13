@@ -29,6 +29,8 @@ var workload = {
         return newBuildersCount;
     },
     getDynamicHarvestersCount: function(){
+        return MAX_HARVESTER;
+        /*
         var currentNumberOfCreeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' || creep.memory.role == 'miner' || creep.memory.role == 'upgrader').length;
         var currentNumberOfOrderedCreeps = this.getDynamicUpgradersCount()+this.getDynamicMinersCount()+this.getDynamicBuildersCount();
         var newHarvesterCount = (currentNumberOfOrderedCreeps - currentNumberOfCreeps) + 4;
@@ -39,6 +41,7 @@ var workload = {
             return MIN_HARVESTER;
         }
         return newHarvesterCount;
+        */
     },
     getDynamicUpgradersCount:function(){
         return 6;
