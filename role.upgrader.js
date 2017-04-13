@@ -6,9 +6,7 @@ var roleUpgrader = {
 
     run: function(creep) {
 
-        // Set a source if the creep doesn't know one.
         if(!creep.memory.known_source){
-
             var containerSource = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER && (_.sum(structure.store) > creep.carryCapacity));
@@ -23,7 +21,8 @@ var roleUpgrader = {
         }
         else{
             if(Game.getObjectById(creep.memory.known_source).structureType == STRUCTURE_CONTAINER){
-                if(Game.getObjectById(creep.memory.known_source)[RESOURCE_ENERGY] == 0){
+
+                if(Game.getObjectById(creep.memory.known_source).store[RESOURCE_ENERGY] == 0){
                     creep.memory.busy = true;
                     var containerSource = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                         filter: (structure) => {
@@ -32,6 +31,10 @@ var roleUpgrader = {
                     });
                     if(containerSource != null){
                         creep.memory.known_source == containerSource.id;
+                    }
+                    else{
+                        creep.memory.busy = false;
+                        creep.memory.known_source = false;
                     }
                 }
                 else{
