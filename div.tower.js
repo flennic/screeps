@@ -14,15 +14,6 @@ var divTower = {
         }
         else
         {
-            /*
-             var repairTarget = creep.pos.findClosestByRange(FIND_STRUCTURES, { filter: (s) => s.hits < s.hitsMax && s.structureType != STRUCTURE_WALL});
-
-             if((repairTarget != null) && creep.repair(repairTarget) == ERR_NOT_IN_RANGE){
-             creep.moveTo(repairTarget, {visualizePathStyle: {stroke: '#ffffff'}});
-             }
-             else{
-             */
-            // var repairTargets = creep.room.find(FIND_STRUCTURES, { filter: (s) => s.hits < s.hitsMax && s.structureType != STRUCTURE_WALL});
             var healTarget = tower.pos.findClosestByRange(FIND_MY_CREEPS, { filter: (c) => c.hits < c.hitsMax});
 
             if(healTarget != null) {
