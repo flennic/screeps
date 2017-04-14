@@ -44,7 +44,7 @@ var workload = {
         */
     },
     getDynamicUpgradersCount:function(){
-        return 6;
+        return 2;
     },
     getDynamicMinersCount: function(){
         return 0;
