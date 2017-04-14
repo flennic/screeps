@@ -50,7 +50,7 @@ var workload = {
         return 0;
     },
     getDynamicRepairersCount: function(){
-        return 1;
+        return 0;
     }
 }
 
