@@ -24,11 +24,11 @@ var factory = {
         // Harvesters
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         if(harvesters.length < CNT_HARVESTERS){
-            if(harvesters.length < 3){
+            if(harvesters.length < 2){
                 var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
             }
             else{
-                var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
+                var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
             }
             if(newHarvester != ERR_BUSY && newHarvester != ERR_NOT_ENOUGH_ENERGY){
                 console.log('Spawning new Harvester (' + (harvesters.length + 1) + '/' + CNT_HARVESTERS + '): ' + newHarvester);
@@ -49,7 +49,7 @@ var factory = {
         // Builders
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         if(builders.length < CNT_BUILDERS) {
-            var newBuilder = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: "builder", busy: false});
+            var newBuilder = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, {role: "builder", busy: false});
             if(newBuilder != ERR_BUSY && newBuilder != ERR_NOT_ENOUGH_ENERGY){
                 console.log('Spawning new builder (' + (builders.length + 1) + '/' + CNT_BUILDERS + '): ' + newBuilder);
             }
@@ -59,7 +59,7 @@ var factory = {
         // Upgraders
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         if(upgraders.length < CNT_UPGRADERS){
-            var newUpgrader = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'upgrader', busy: false});
+            var newUpgrader = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, {role: 'upgrader', busy: false});
             if(newUpgrader != ERR_BUSY && newUpgrader != ERR_NOT_ENOUGH_ENERGY){
                 console.log('Spawning new Upgrader (' + (upgraders.length + 1) + '/' + CNT_UPGRADERS + '): ' + newUpgrader);
             }
