@@ -11,7 +11,7 @@ var divTower = require('div.tower');
 var overview = require('util.overview');
 
 // TODO: Harvesters fill tanks, builders use them, create Hauler role.
-// TODO: General: If there is a list of objects to interact, don't use list[0], always take the closest. If there is a specific order, split the target search.
+// TODO: General: If there is a list of objects to interact, don't use list[0], always take the closest. If there is a specific order, split the target search. -> Especially Harvesters first"!
 // TODO: Let Harvesters also fill tanks and spawn them depending on missing resource instead if delta missing creeps.
 // TODO: If more than 5 creeps have the same source selected, search for a new source. Also check if it is the last source, to prevent endless cycles.
 // TODO: Spawn a test creep to see if the tower is defending.
