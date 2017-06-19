@@ -25,7 +25,7 @@ var factory = {
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         if(harvesters.length < CNT_HARVESTERS){
             if(harvesters.length < 2){
-                var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
+                var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, CARRY, CARRY, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
             }
             else{
                 var newHarvester = Game.spawns[SPAWN_NAME].createCreep([WORK, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE], undefined, {role: 'harvester', busy: false});
